@@ -11,7 +11,6 @@ class Transaction
 		@@id += 1
 		@id = @@id
 	    add_transaction
-
 	end
 
 	def self.all
@@ -26,7 +25,6 @@ class Transaction
 		@@transactions.find {|transaction| transaction.id == id}
 	end
 
-	 
 	def add_transaction
     	if product.in_stock?  
       		@@transactions << self
@@ -35,6 +33,18 @@ class Transaction
       		raise OutOfStockError, "'#{product.title}' is out of stock."
     	end
   	end
+
+  	def self.delete(id)
+  		@@transactions.delete {|transaction| transaction.id == id}
+  	end
+
+  	def self.returns(id)
+  		find_transaction = self.find(id)
+  		find_transaction.product.increase_stock
+  		@@transactions.delete_if {|transaction| transaction == find_transaction}
+  	end
+
+
 end
 
 

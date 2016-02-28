@@ -56,16 +56,16 @@ puts transaction.product == nanoblock # Should return true
 puts transaction.product == firehouse # Should return false
 puts transaction.customer == walter # Should return true
 
-puts nanoblock.stock # Should return 11 but with the additianal feature returns 10
+puts nanoblock.stock # Should return 11 
 
 # PURCHASES
 
 puts walter.purchase(nanoblock)
 
-puts Transaction.all.count # Should return 2 but with the additioanl feature returns 6
-
+puts Transaction.all.count # Should return 2 
 transaction2 = Transaction.find(2)
 puts transaction2.product == nanoblock # Should return true
+
 
 #walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
@@ -88,7 +88,9 @@ julia = Customer.find_by_name("Julia Van Cleve")
 transaction_3 = Transaction.new(julia, nanoblock)
 transaction_4 = Transaction.new(julia, batman)
 transaction_5 = Transaction.new(julia, battle)
-Transaction_6 = Transaction.new(julia, kryptonite)
+transaction_6 = Transaction.new(julia, kryptonite)
+
+puts kryptonite.stock # Should return 9
 
 puts walter.name # Should return "Walter Latimer"
 puts walter.loyal_status #Should return "Loyal Customer: Not Yet!"
@@ -96,3 +98,8 @@ puts walter.loyal_status #Should return "Loyal Customer: Not Yet!"
 puts julia.name # Should return "Julia Van Cleve" 
 puts julia.loyal_status # Should return "Loyal Customer: Yes!"
 
+puts Transaction.all.count # Should return 6 
+Transaction.returns(6) # Removed the product wiht id equal to 6, increases the stock of it and makes Julia's loyal status "Not Yet" 
+puts Transaction.all.count # Shour return 5
+puts kryptonite.stock # Should return 10 
+puts julia.loyal_status # Should return "Loyal Customer: Not Yet"

@@ -26,6 +26,10 @@ class Product
 	def decrease_stock
 		@stock -= 1
 	end
+
+ 	def increase_stock
+ 		@stock +=1
+ 	end
  	
  	def self.in_stock
  		@@products.find_all {|product| product.in_stock?}
