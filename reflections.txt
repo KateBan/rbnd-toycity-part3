@@ -10,4 +10,4 @@ The second I added a feature that categorizes a customer as loyal or not based o
 The third feature allows customers to make returns. It updates the stock number of the product as well as the loyal status of the customer. That is something practical that every store should be able to do.
 
 4.Where do you still have room to grow? 
-I just began Ruby, o a lot of room for growth! I can improve on building much more beautiful, clean and efficient code. 
+I just began Ruby, so a lot of room for growth! I can improve on building much more beautiful, clean and efficient code. 
