@@ -1,11 +1,12 @@
 class Customer
 
-	attr_reader :name
+	attr_reader :name, :loyal_status
 
 	@@customers = []
 
 	def initialize(options = {})
 		@name = options[:name]
+		@loyal_status = options[:loyal_status]
 		add_to_custmers
 	end
 
@@ -27,6 +28,15 @@ class Customer
 
 	def purchase(product)
 		Transaction.new(self,product)
+	end
+
+	def loyal_status
+		count = Transaction.all.count {|transaction| transaction.customer == self}
+		if count > 3
+			return  "Loyal customer: Yes!"
+		else
+			return "Loyal customer: Not yet!"
+		end
 	end
 
 end
