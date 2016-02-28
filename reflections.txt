@@ -1,0 +1,13 @@
+1.How long did you spend working on this project?
+Approximately 10 hours.  Is it too much? I guess I had to do it in about 5 hours?
+
+2.What was the most rewarding challenge you conquered?
+Something that I struggled a lot was figuring out how to access variables from one class in another. I was very frustrated about this, and I lost a lot of hours trying to do this for my previous project Udacitask part 1 which I could not do at the time. While working on ToyCity3, it hit me, and I went back and fixed my Udacitask 1 in 2 mins. That was incredible!!! I was like wow. :)
+
+3.What two additional features did you build? Why?
+The first thing I did was to add attribute brand for every product. More information about the products gives you more options to manipulate the data.
+The second I added a feature that categorizes a customer as loyal or not based on the number of items they have been purchasing from the company.  If they bought more than three products, they are labeled as loyal. I think that knowing who your loyal customers are, is very useful.
+The third feature allows customers to make returns. It updates the stock number of the product as well as the loyal status of the customer. That is something practical that every store should be able to do.
+
+4.Where do you still have room to grow? 
+I just began Ruby, o a lot of room for growth! I can improve on building much more beautiful, clean and efficient code. 
