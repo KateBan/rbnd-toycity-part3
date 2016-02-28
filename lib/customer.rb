@@ -1,12 +1,11 @@
 class Customer
 
-	attr_reader :name, :loyal_status
+	attr_reader :name
 
 	@@customers = []
 
 	def initialize(options = {})
 		@name = options[:name]
-		@loyal_status = options[:loyal_status]
 		add_to_custmers
 	end
 

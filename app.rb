@@ -9,25 +9,20 @@ require_relative "lib/transaction"
 Product.new(title: "LEGO Iron Man vs. Ultron", price: 22.99, stock: 55, brand: "LEGO")
 Product.new(title: "Nano Block Empire State Building", price: 49.99, stock: 12, brand: "Nano Block")
 Product.new(title: "LEGO Firehouse Headquarter", price: 199.99, stock: 0,brand: "LEGO")
-Product.new(title: "Kryptonite Interception", price: 29.99, stock: 10, brand: "LEGO")
-Product.new(title: "Heroes of Justice: Sky High Battle", price: 59.99, stock: 5, brand: "LEGO")
-Product.new(title: "Super Heroes Batman Minifigure Clock", price: 29.99, stock: 20, brand: "LEGO")
 
-puts Product.all.count # Should return 3 but with the additianal feature returns 6
+
+puts Product.all.count # Should return 3 
 
 #Product.new(title: "LEGO Iron Man vs. Ultron", price: 22.99, stock: 55)
 # Should return DuplicateProductError: 'LEGO Iron Man vs. Ultron' already exists.
 
 nanoblock = Product.find_by_title("Nano Block Empire State Building")
 firehouse = Product.find_by_title("LEGO Firehouse Headquarter")
-batman = Product.find_by_title("Super Heroes Batman Minifigure Clock")
-battle = Product.find_by_title("Heroes of Justice: Sky High Battle")
-kryptonite = Product.find_by_title("Kryptonite Interception")
+
 
 puts nanoblock.title # Should return 'Nano Block Empire State Building'
 puts nanoblock.price # Should return 49.99
 puts nanoblock.stock # Should return 12
-puts nanoblock.brand #Shoould return Nano Block.This comes from my first additional feature.
 puts nanoblock.in_stock? # Should return true
 puts firehouse.in_stock? # Should return false
 
@@ -48,21 +43,13 @@ puts Customer.all.count # Should return 2
 # Should return DuplicateCustomerError: 'Walter Latimer' already exists.
 
 walter = Customer.find_by_name("Walter Latimer")
-julia = Customer.find_by_name("Julia Van Cleve")
 
 puts walter.name # Should return "Walter Latimer"
-puts walter.loyal_status #Should return "Loyal Customer: Not Yet!"
+
 
 # TRANSACTIONS
 
 transaction = Transaction.new(walter, nanoblock)
-transaction_3 = Transaction.new(julia, nanoblock)
-transaction_4 = Transaction.new(julia, batman)
-transaction_5 = Transaction.new(julia, battle)
-Transaction_6 = Transaction.new(julia, kryptonite)
-
-puts julia.name # Should return "Julia Van Cleve" 
-puts julia.loyal_status # Should return "Loyal Customer: Yes!"
 
 puts transaction.id # Should return 1
 puts transaction.product == nanoblock # Should return true
@@ -82,3 +69,30 @@ puts transaction2.product == nanoblock # Should return true
 
 #walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
+
+
+#### Additioanl features ####
+
+puts
+puts "Additional features"
+
+# Adding 3 new products and adding brand attribute for every product
+kryptonite =  Product.new(title: "Kryptonite Interception", price: 29.99, stock: 10, brand: "LEGO")
+battle = Product.new(title: "Heroes of Justice: Sky High Battle", price: 59.99, stock: 5, brand: "LEGO")
+batman =  Product.new(title: "Super Heroes Batman Minifigure Clock", price: 29.99, stock: 20, brand: "LEGO")
+
+puts kryptonite.brand #Shoould return LEGO.
+
+julia = Customer.find_by_name("Julia Van Cleve")
+
+transaction_3 = Transaction.new(julia, nanoblock)
+transaction_4 = Transaction.new(julia, batman)
+transaction_5 = Transaction.new(julia, battle)
+Transaction_6 = Transaction.new(julia, kryptonite)
+
+puts walter.name # Should return "Walter Latimer"
+puts walter.loyal_status #Should return "Loyal Customer: Not Yet!"
+
+puts julia.name # Should return "Julia Van Cleve" 
+puts julia.loyal_status # Should return "Loyal Customer: Yes!"
+
